@@ -1,0 +1,476 @@
+ <!DOCTYPE html>
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>和味酒房 いざかや縁 - 心ほぐれる旬味と美酒</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="和味酒房 いざかや縁の公式LP。旬の魚介と地酒でおもてなし。ご予約・アクセス情報はこちらから。">
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+        line-height: 1.6;
+        --accent-light: #7db8a6;
+        --accent: #2f6b5b;
+        --accent-dark: #1f4337;
+        --bg: #f8f5f0;
+        --text: #2d2a26;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: var(--text);
+        background: var(--bg);
+      }
+      header {
+        background: linear-gradient(135deg, rgba(215,236,229,0.4) 0%, rgba(125,184,166,0.25) 55%, rgba(47,107,91,0.32) 100%), url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+        color: #fff;
+      }
+      .container {
+        width: min(1100px, 92vw);
+        margin: 0 auto;
+        padding: 64px 0;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        font-size: 15px;
+      }
+      nav ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border 0.2s;
+      }
+      nav a:hover { border-color: #fff; }
+      .hero {
+        padding: 80px 0 100px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: clamp(34px, 5vw, 52px);
+        margin-bottom: 16px;
+        letter-spacing: 0.12em;
+      }
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 32px;
+      }
+      .btn-primary {
+        display: inline-block;
+        background: #fff;
+        color: var(--accent);
+        padding: 14px 36px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 0.04em;
+        transition: transform 0.2s ease;
+      }
+      .btn-primary:hover { transform: translateY(-3px); }
+      section { padding: 72px 0; }
+      section:nth-of-type(odd) { background: #fff; }
+      h2 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .section-lead {
+        text-align: center;
+        color: #5e5750;
+        margin-bottom: 48px;
+      }
+      .grid {
+        display: grid;
+        gap: 32px;
+      }
+      .grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .card {
+        background: rgba(255,255,255,0.85);
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+      }
+      .card-photo {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      }
+      .card h3 {
+        margin-top: 0;
+        color: var(--accent-dark);
+        font-size: 20px;
+      }
+      .menu-tag {
+        display: inline-block;
+        background: linear-gradient(120deg, rgba(125,184,166,0.22), rgba(47,107,91,0.22));
+        color: var(--accent);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        margin-bottom: 14px;
+      }
+      .features {
+        display: grid;
+        gap: 26px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .concept-visual {
+        margin-top: 48px;
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .concept-visual img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+      }
+      .features li {
+        background: rgba(255,255,255,0.9);
+        padding: 24px;
+        border-left: 4px solid var(--accent);
+        list-style: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+      }
+      .callout {
+        background: linear-gradient(120deg, rgba(125,184,166,0.5), rgba(47,107,91,0.6), rgba(31,67,55,0.7));
+        color: #fff;
+        border-radius: 18px;
+        padding: 48px;
+        text-align: center;
+        margin-top: 48px;
+      }
+      .callout p { font-size: 18px; margin-bottom: 24px; }
+      .reservation-form {
+        background: #fff;
+        border-radius: 16px;
+        padding: 36px;
+        box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .form-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d4cfc8;
+        border-radius: 8px;
+        font-family: inherit;
+        background: rgba(248,245,240,0.8);
+      }
+      textarea { resize: vertical; min-height: 110px; }
+      .btn-submit {
+        background: linear-gradient(135deg, var(--accent-light), var(--accent));
+        color: #fff;
+        border: none;
+        padding: 15px 36px;
+        border-radius: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 0.06em;
+        transition: opacity 0.2s;
+        margin-top: 12px;
+      }
+      .btn-submit:hover { opacity: 0.88; }
+      .access-info {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .faq {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      details {
+        background: #fff;
+        border-radius: 14px;
+        padding: 20px 24px;
+        margin-bottom: 14px;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+      }
+      summary {
+        cursor: pointer;
+        font-weight: bold;
+        color: var(--accent-dark);
+      }
+      footer {
+        background: #1f1a16;
+        color: rgba(255,255,255,0.8);
+        text-align: center;
+        padding: 40px 0;
+        font-size: 14px;
+      }
+      .scroll-top {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        background: rgba(0,0,0,0.55);
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 16px;
+        border-radius: 28px;
+        font-size: 13px;
+      }
+      @media (max-width: 720px) {
+        nav { flex-direction: column; gap: 10px; }
+        .hero { padding: 60px 0 80px; }
+        .callout { padding: 32px 24px; }
+        .reservation-form { padding: 28px 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <a id="top"></a>
+    <header>
+      <div class="container">
+        <nav>
+          <div>和味酒房 いざかや縁</div>
+          <ul>
+            <li><a href="#concept">こだわり</a></li>
+            <li><a href="#seasonal">季節の献立</a></li>
+            <li><a href="#recommend">おすすめ</a></li>
+            <li><a href="#reservation">ご予約</a></li>
+            <li><a href="#access">アクセス</a></li>
+          </ul>
+        </nav>
+        <div class="hero">
+          <p style="letter-spacing:0.24em;">旬味と美酒で、心ほどけるひとときを</p>
+          <h1>和味酒房 いざかや縁</h1>
+          <p>築地直送の旬魚と、杜氏が厳選した全国の地酒。<br />飾らず、肩ひじ張らず、それでいて忘れられない夜を。</p>
+          <a class="btn-primary" href="#reservation">今すぐ予約する</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="concept">
+      <div class="container">
+        <h2>縁が育む、三つのこだわり</h2>
+        <p class="section-lead">季節を映す一皿、心に残るおもてなし。五感で味わう時間をご提供します。</p>
+        <ul class="features">
+          <li>
+            <h3>旬の魚介と野菜</h3>
+            <p>朝獲れの鮮魚を中心に、産地直送の滋味あふれる野菜を使用。素材を活かした繊細な味付けでお届けします。</p>
+          </li>
+          <li>
+            <h3>料理に寄り添う地酒</h3>
+            <p>杜氏が蔵元で仕入れた限定流通酒を含む20種以上。冷・燗の最適温度でお出しします。</p>
+          </li>
+          <li>
+            <h3>落ち着きの空間</h3>
+            <p>木の温もりが心地よいカウンターと半個室。大切な方との会食やおひとりの時間にも寄り添います。</p>
+          </li>
+        </ul>
+        <div class="concept-visual">
+          <img src="https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=1400&q=80" alt="木の温もりが心地よいカウンター席" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1400&q=80" alt="旬の食材を使った彩り豊かな料理" loading="lazy" />
+        </div>
+        <div class="callout">
+          <p>【平日限定】18:00までのご来店で、おまかせ前菜三点盛りをサービス。</p>
+          <a class="btn-primary" href="#reservation">ハッピーアワーを予約する</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="seasonal">
+      <div class="container">
+        <h2>季節の献立</h2>
+        <p class="section-lead">今晩のおすすめを、一部ご紹介します。内容は仕入れ状況で日々変わります。</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1200&q=80" alt="季節の魚介料理の盛り付け" loading="lazy" />
+            <span class="menu-tag">限定10食</span>
+            <h3>秋刀魚の炙りと柿の白和え</h3>
+            <p>炭火で香りを閉じ込めた秋刀魚を、柿と胡桃を合わせた白和えで。口の中で秋が広がります。</p>
+            <p><strong>980円</strong></p>
+          </div>
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80" alt="松茸を使った土瓶蒸しのイメージ" loading="lazy" />
+            <span class="menu-tag">おすすめ</span>
+            <h3>松茸土瓶蒸し</h3>
+            <p>松茸と鯛の旨みが溶け合う一杯。香りを逃がさぬよう、出来立てでお席まで。</p>
+            <p><strong>1,480円</strong></p>
+          </div>
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=1200&q=80" alt="塩麹で仕上げた和牛炙り寿司" loading="lazy" />
+            <span class="menu-tag">人気No.1</span>
+            <h3>塩麹熟成・和牛炙り寿司</h3>
+            <p>三河みりんで仕込んだ塩麹に漬けた和牛を軽く炙り、とろける口触りに仕上げました。</p>
+            <p><strong>2貫 720円</strong></p>
+          </div>
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1200&q=80" alt="蟹真丈の吸い物" loading="lazy" />
+            <span class="menu-tag">お椀</span>
+            <h3>蟹真丈 清汁仕立て</h3>
+            <p>紅ズワイ蟹の甘みを活かした真丈。出汁は北海道昆布と枕崎産本枯節で引いています。</p>
+            <p><strong>820円</strong></p>
+          </div>
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80" alt="いくらを盛り付けた酒肴" loading="lazy" />
+            <span class="menu-tag">酒肴</span>
+            <h3>自家製いくら醤油漬け</h3>
+            <p>北海道産鮭卵を、特製醤油と柚子で漬け込み。酒肴として人気の一品です。</p>
+            <p><strong>640円</strong></p>
+          </div>
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=1200&q=80" alt="蕎麦茶パンナコッタのデザート" loading="lazy" />
+            <span class="menu-tag">甘味</span>
+            <h3>蕎麦茶パンナコッタ</h3>
+            <p>きな粉と黒蜜を添えた、食後にぴったりのやさしい甘味。香ばしい余韻をお楽しみください。</p>
+            <p><strong>480円</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recommend">
+      <div class="container">
+        <h2>楽しみ方のご提案</h2>
+        <p class="section-lead">お好みに合わせたコースやペアリングで、特別な夜を演出します。</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=1200&q=80" alt="おまかせ旬彩コースの盛り付け" loading="lazy" />
+            <h3>おまかせ旬彩コース</h3>
+            <p>全8品 5,800円。旬魚の造り、炭火焼、季節の土鍋ごはんを含む、店主厳選のコース。</p>
+          </div>
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1510626176961-4b37d0f0b17c?auto=format&fit=crop&w=1200&q=80" alt="日本酒と酒器のセット" loading="lazy" />
+            <h3>地酒ペアリング</h3>
+            <p>料理に合わせて3〜5種の地酒を順番にご提供。日本酒初心者の方も安心です。</p>
+          </div>
+          <div class="card">
+            <img class="card-photo" src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80" alt="記念日のテーブルコーディネート" loading="lazy" />
+            <h3>記念日のしつらえ</h3>
+            <p>事前相談でメッセージプレートや花束の手配も可能。大切な瞬間をささやかに彩ります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation">
+      <div class="container">
+        <h2>ご予約</h2>
+        <p class="section-lead">下記フォームより24時間ご予約を承ります。お急ぎの際はお電話にてお願いいたします。</p>
+        <div class="reservation-form">
+          <form>
+            <div class="form-grid">
+              <div>
+                <label for="name">お名前</label>
+                <input id="name" type="text" placeholder="例：山田 太郎" />
+              </div>
+              <div>
+                <label for="phone">お電話番号</label>
+                <input id="phone" type="tel" placeholder="090-1234-5678" />
+              </div>
+              <div>
+                <label for="date">ご来店日</label>
+                <input id="date" type="date" />
+              </div>
+              <div>
+                <label for="time">ご来店時間</label>
+                <input id="time" type="time" />
+              </div>
+              <div>
+                <label for="people">人数</label>
+                <select id="people">
+                  <option value="">選択してください</option>
+                  <option>1名</option>
+                  <option>2名</option>
+                  <option>3名</option>
+                  <option>4名</option>
+                  <option>5名以上</option>
+                </select>
+              </div>
+              <div>
+                <label for="seat">ご希望の席</label>
+                <select id="seat">
+                  <option value="">選択してください</option>
+                  <option>カウンター</option>
+                  <option>テーブル</option>
+                  <option>半個室</option>
+                  <option>特に指定なし</option>
+                </select>
+              </div>
+            </div>
+            <div style="margin-top:20px;">
+              <label for="message">ご要望・アレルギーなど</label>
+              <textarea id="message" placeholder="アレルギー食材、サプライズのご希望などをご記入ください。"></textarea>
+            </div>
+            <button class="btn-submit" type="submit">確認して送信</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="access">
+      <div class="container">
+        <h2>アクセス</h2>
+        <p class="section-lead">最寄り駅から徒歩3分。路地裏の提灯が目印です。</p>
+        <div class="access-info">
+          <p><strong>住所：</strong>東京都中央区○○ 1-2-3 ロータスビル1F</p>
+          <p><strong>最寄り：</strong>銀座線○○駅 A1出口より徒歩3分 / JR○○駅 東口より徒歩6分</p>
+          <p><strong>営業時間：</strong>17:00〜24:00（L.O.23:00） 日曜定休</p>
+          <p><strong>電話：</strong>03-1234-5678</p>
+          <p><strong>席数：</strong>カウンター8席 / テーブル16席 / 半個室2室</p>
+          <p><strong>備考：</strong>全席禁煙 / Wi-Fi完備 / 英語メニュー対応</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2>よくあるご質問</h2>
+        <p class="section-lead">安心してご来店いただくために、よくいただく質問をまとめました。</p>
+        <div class="faq">
+          <details>
+            <summary>アレルギー対応は可能ですか？</summary>
+            <p>可能です。前日までにお知らせいただければ、可能な限り代替メニューをご用意いたします。</p>
+          </details>
+          <details>
+            <summary>貸切はできますか？</summary>
+            <p>20名様からご相談を承ります。曜日や時間帯により条件が異なりますので、お気軽にお問い合わせください。</p>
+          </details>
+          <details>
+            <summary>お子様連れでも大丈夫ですか？</summary>
+            <p>はい。半個室のお席をご案内いたします。小学生以下のお子様用メニューもご用意できます。</p>
+          </details>
+          <details>
+            <summary>クレジットカードや電子決済は使えますか？</summary>
+            <p>主要クレジットカード、交通系IC、PayPayなどに対応しております。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 和味酒房 いざかや縁 All Rights Reserved.</p>
+    </footer>
+    <a class="scroll-top" href="#top">ページ上部へ</a>
+  </body>
+  </html>
