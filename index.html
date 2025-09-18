@@ -32,13 +32,13 @@
         content: "";
         position: absolute;
         inset: 0;
-        /* Top-only green overlay fading to transparent */
-        background: linear-gradient(to bottom,
-          rgba(22,56,47,0.66) 0%,
-          rgba(22,56,47,0.46) 10%,
-          rgba(22,56,47,0.22) 22%,
-          rgba(22,56,47,0.08) 30%,
-          rgba(22,56,47,0) 42%
+        /* Bottom-only green overlay fading to transparent (slightly stronger) */
+        background: linear-gradient(to top,
+          rgba(22,56,47,0.78) 0%,
+          rgba(22,56,47,0.56) 16%,
+          rgba(22,56,47,0.28) 32%,
+          rgba(22,56,47,0.10) 44%,
+          rgba(22,56,47,0) 58%
         );
         mix-blend-mode: multiply;
         pointer-events: none;
