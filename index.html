@@ -45,8 +45,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 24px 0;
+        padding: 16px 20px;
         font-size: 15px;
+        background: rgba(10, 28, 24, 0.62);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 18px 32px rgba(0,0,0,0.22);
       }
       nav ul {
         display: flex;
@@ -59,10 +65,37 @@
         color: #fff;
         text-decoration: none;
         border-bottom: 1px solid transparent;
-        transition: border 0.2s;
+        transition: background-color 0.2s ease, color 0.2s ease;
         text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-weight: 600;
       }
-      nav a:hover { border-color: #fff; }
+      nav a:hover, nav a:focus-visible {
+        background-color: rgba(255,255,255,0.14);
+        outline: none;
+      }
+      .nav-brand { color: #fff; font-weight: 700; letter-spacing: 0.08em; text-shadow: 0 2px 6px rgba(0,0,0,0.45); }
+      .nav-toggle {
+        display: none;
+        width: 44px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(255,255,255,0.06);
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+      }
       .hero {
         padding: 80px 0 100px;
         text-align: center;
@@ -252,25 +285,26 @@
       @media (max-width: 720px) {
         nav {
           flex-direction: column;
-          align-items: flex-start;
-          gap: 16px;
-          background: rgba(10, 28, 24, 0.72);
-          padding: 20px;
-          border-radius: 18px;
-          backdrop-filter: blur(10px);
-          box-shadow: 0 18px 32px rgba(0,0,0,0.22);
+          align-items: stretch;
+          gap: 12px;
+          padding: 14px 14px 12px;
+          border-radius: 14px;
         }
-        nav div { font-weight: 600; letter-spacing: 0.08em; }
+        .nav-toggle { display: inline-flex; margin-left: auto; }
         nav ul {
+          display: none;
           flex-direction: column;
           width: 100%;
-          gap: 12px;
+          gap: 8px;
         }
+        nav.open ul { display: flex; }
         nav a {
           display: block;
           width: 100%;
           font-size: 15px;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.06em;
+          padding: 12px 10px;
+          background: rgba(255,255,255,0.06);
         }
         .hero { padding: 60px 0 80px; }
         .callout { padding: 32px 24px; }
@@ -282,8 +316,13 @@
     <header>
       <div class="container">
         <nav>
-          <div>和味酒房 いざかや縁</div>
-          <ul>
+          <div class="nav-brand">和味酒房 いざかや縁</div>
+          <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="メニューを開閉">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul id="primary-menu">
             <li><a href="#concept">こだわり</a></li>
             <li><a href="#seasonal">季節の献立</a></li>
             <li><a href="#recommend">おすすめ</a></li>
@@ -503,5 +542,32 @@
       <p>© 2025 和味酒房 いざかや縁 All Rights Reserved.</p>
     </footer>
     <a class="scroll-top" href="#top">ページ上部へ</a>
+    <script>
+      (function() {
+        const nav = document.querySelector('header nav');
+        const btn = document.querySelector('.nav-toggle');
+        const menu = document.getElementById('primary-menu');
+        if (!nav || !btn || !menu) return;
+
+        const closeMenu = () => {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        };
+        const openMenu = () => {
+          nav.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        };
+        btn.addEventListener('click', () => {
+          const isOpen = nav.classList.contains('open');
+          isOpen ? closeMenu() : openMenu();
+        });
+        menu.addEventListener('click', (e) => {
+          if (e.target.closest('a')) closeMenu();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeMenu();
+        });
+      })();
+    </script>
   </body>
   </html>
