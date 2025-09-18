@@ -452,23 +452,23 @@
             <div class="form-grid">
               <div>
                 <label for="name">お名前</label>
-                <input id="name" type="text" placeholder="例：山田 太郎" />
+                <input id="name" name="name" type="text" placeholder="例：山田 太郎" />
               </div>
               <div>
                 <label for="phone">お電話番号</label>
-                <input id="phone" type="tel" placeholder="090-1234-5678" />
+                <input id="phone" name="phone" type="tel" placeholder="090-1234-5678" />
               </div>
               <div>
                 <label for="date">ご来店日</label>
-                <input id="date" type="date" />
+                <input id="date" name="date" type="date" />
               </div>
               <div>
                 <label for="time">ご来店時間</label>
-                <input id="time" type="time" />
+                <input id="time" name="time" type="time" />
               </div>
               <div>
                 <label for="people">人数</label>
-                <select id="people">
+                <select id="people" name="people">
                   <option value="">選択してください</option>
                   <option>1名</option>
                   <option>2名</option>
@@ -479,7 +479,7 @@
               </div>
               <div>
                 <label for="seat">ご希望の席</label>
-                <select id="seat">
+                <select id="seat" name="seat">
                   <option value="">選択してください</option>
                   <option>カウンター</option>
                   <option>テーブル</option>
@@ -490,7 +490,7 @@
             </div>
             <div style="margin-top:20px;">
               <label for="message">ご要望・アレルギーなど</label>
-              <textarea id="message" placeholder="アレルギー食材、サプライズのご希望などをご記入ください。"></textarea>
+              <textarea id="message" name="message" placeholder="アレルギー食材、サプライズのご希望などをご記入ください。"></textarea>
             </div>
             <button class="btn-submit" type="submit">確認して送信</button>
           </form>
