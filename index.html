@@ -32,15 +32,8 @@
         content: "";
         position: absolute;
         inset: 0;
-        /* Bottom-only green overlay fading to transparent (slightly stronger) */
-        background: linear-gradient(to top,
-          rgba(22,56,47,0.78) 0%,
-          rgba(22,56,47,0.56) 16%,
-          rgba(22,56,47,0.28) 32%,
-          rgba(22,56,47,0.10) 44%,
-          rgba(22,56,47,0) 58%
-        );
-        mix-blend-mode: multiply;
+        /* Full-area gentle green overlay */
+        background: rgba(47,107,91,0.22);
         pointer-events: none;
       }
       header .container { position: relative; z-index: 1; }
