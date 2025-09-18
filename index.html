@@ -32,8 +32,14 @@
         content: "";
         position: absolute;
         inset: 0;
-        /* Full-area gentle green overlay */
-        background: rgba(47,107,91,0.22);
+        /* Full-area green overlay with subtle top/bottom emphasis for depth */
+        background: linear-gradient(to bottom,
+          rgba(47,107,91,0.38) 0%,
+          rgba(47,107,91,0.26) 12%,
+          rgba(47,107,91,0.22) 50%,
+          rgba(47,107,91,0.26) 88%,
+          rgba(47,107,91,0.38) 100%
+        );
         pointer-events: none;
       }
       header .container { position: relative; z-index: 1; }
